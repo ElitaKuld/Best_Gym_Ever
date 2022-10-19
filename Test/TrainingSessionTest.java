@@ -10,8 +10,8 @@ public class TrainingSessionTest {
 
     @Test
     void printInfoAboutMeTest() {
-        assert (testCustomer.printInfoAboutMe().equals("Namn: David Ljunggren, personnummer: 8801011825, datumet när tränat: " + today));
-        assert (testCustomer.printInfoAboutMe().length() == 79);
-        assert (testCustomer.printInfoAboutMe().length() != 0);
+        assert (testSession.printInfoAboutMe().equals("Namn: David Ljunggren, personnummer: 8801011825, datumet när tränat: " + today));
+        assert (testSession.printInfoAboutMe().length() == 79);
+        assert (testSession.printInfoAboutMe().length() != 0);
     }
 }

@@ -29,14 +29,6 @@ public class FileReaderWriterTest {
         assert (peopleInTheFile.get(7).getDateOfPaidFee().toString().equals("2019-08-18"));
     }
 
-    @Test
-    void writeTrainingSessionToFileTest() {
-        FileReaderWriter.writeTrainingSessionToFile(testSession);
-        assert (countNumberOfTokens(outFileName) == 79);
-        assert (countNumberOfTokens(outFileName) != 0);
-        assert (countNumberOfTokens(outFileName) != 78);
-    }
-
     public final int countNumberOfTokens(String outFileName) {
         int numberOfTokens = 0;
         String rowOfText;
@@ -49,5 +41,13 @@ public class FileReaderWriterTest {
             e.printStackTrace();
         }
         return numberOfTokens;
+    }
+
+    @Test
+    void writeTrainingSessionToFileTest() {
+        FileReaderWriter.writeTrainingSessionToFile(testSession);
+        assert (countNumberOfTokens(outFileName) == 79);
+        assert (countNumberOfTokens(outFileName) != 0);
+        assert (countNumberOfTokens(outFileName) != 78);
     }
 }

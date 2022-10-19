@@ -5,12 +5,13 @@ import java.util.List;
 
 public class Huvudprogram {
 
+    boolean testMode = false;
+
     public static void main(String[] args) {
+        Huvudprogram hp = new Huvudprogram();
         Path inFilePath = Paths.get("src/customers.txt");
+        String nameOrPersonalNumber = InputDataReader.readInputData(hp.testMode);
         List<Customer> peopleInTheFile = FileReaderWriter.readFromFileToList(inFilePath);
-
-        String nameOrPersonalNumber = JOptionPane.showInputDialog("Ange namn eller personnummer (10 siffror) på personen som har kommit till gymmet.").trim();
-
-        JOptionPane.showMessageDialog(null, Finder.findPersonOnList(peopleInTheFile,nameOrPersonalNumber));
+        JOptionPane.showMessageDialog(null, Finder.findPersonOnList(peopleInTheFile, nameOrPersonalNumber));
     }
 }
