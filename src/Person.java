@@ -1,13 +1,14 @@
-public abstract class Person implements Printable{
+public abstract class Person implements Printable {
 
     private String name;
-    private String personnummer;
+    private String personalNumber;
 
-    public Person(){}
+    public Person() {
+    }
 
-    public Person(String name, String personnummer) {
+    public Person(String name, String personalNumber) {
         this.name = name;
-        this.personnummer = personnummer;
+        this.personalNumber = personalNumber;
     }
 
     public String getName() {
@@ -18,12 +19,12 @@ public abstract class Person implements Printable{
         this.name = name;
     }
 
-    public String getPersonnummer() {
-        return personnummer;
+    public String getPersonalNumber() {
+        return personalNumber;
     }
 
-    public void setPersonnummer(String personnummer) {
-        this.personnummer = personnummer;
+    public void setPersonalNumber(String personalNumber) {
+        this.personalNumber = personalNumber;
     }
 
     public abstract String printInfoAboutMe();
