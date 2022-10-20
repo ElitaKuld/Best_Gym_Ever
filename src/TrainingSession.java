@@ -5,9 +5,6 @@ public class TrainingSession implements Printable {
     private Customer customer;
     private LocalDate dateOfTraining;
 
-    public TrainingSession() {
-    }
-
     public TrainingSession(Customer customer) {
         this.customer = customer;
         this.dateOfTraining = LocalDate.now();
@@ -17,16 +14,8 @@ public class TrainingSession implements Printable {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     public LocalDate getDateOfTraining() {
         return dateOfTraining;
-    }
-
-    public void setDateOfTraining(LocalDate dateOfTraining) {
-        this.dateOfTraining = dateOfTraining;
     }
 
     @Override

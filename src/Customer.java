@@ -4,15 +4,6 @@ public class Customer extends Person {
 
     private LocalDate dateOfPaidFee;
 
-    public Customer(String name, String personalNumber) {
-        super.setName(name);
-        super.setPersonalNumber(personalNumber);
-    }
-
-    public Customer(LocalDate dateOfPaidFee) {
-        this.dateOfPaidFee = dateOfPaidFee;
-    }
-
     public Customer(String name, String personalNumber, LocalDate dateOfPaidFee) {
         super(name, personalNumber);
         this.dateOfPaidFee = dateOfPaidFee;
@@ -20,10 +11,6 @@ public class Customer extends Person {
 
     public LocalDate getDateOfPaidFee() { //OBS!!!!! FIXA!!!
         return dateOfPaidFee;
-    }
-
-    public void setDateOfPaidFee(LocalDate dateOfPaidFee) {
-        this.dateOfPaidFee = dateOfPaidFee;
     }
 
     @Override

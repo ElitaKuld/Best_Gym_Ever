@@ -6,7 +6,7 @@ public class Finder {
     public static String findPersonOnList(List<Customer> peopleInTheFile, String nameOrPersonalNumber) {
         String result = "";
         for (Customer customer : peopleInTheFile) {
-            if (nameOrPersonalNumber.equals(customer.getName()) ||
+            if (nameOrPersonalNumber.equalsIgnoreCase(customer.getName()) ||
                     nameOrPersonalNumber.equals(customer.getPersonalNumber())) {
                 if (Comparator.isUpToOneYear(Comparator.getPeriod(customer.getDateOfPaidFee(), LocalDate.now()))) {
                     TrainingSession session = new TrainingSession(customer);
