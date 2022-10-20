@@ -20,7 +20,7 @@ public class Finder {
                     break;
                 }
             } else
-                result = "Denna person är obehörig.";
+                result = "Okänt namn eller personnummer. Denna person är obehörig.";
         }
         return result;
     }

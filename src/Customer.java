@@ -4,9 +4,6 @@ public class Customer extends Person {
 
     private LocalDate dateOfPaidFee;
 
-    public Customer() {
-    }
-
     public Customer(String name, String personalNumber) {
         super.setName(name);
         super.setPersonalNumber(personalNumber);

@@ -1,7 +1,10 @@
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -29,14 +32,12 @@ public class FileReaderWriterTest {
         assert (peopleInTheFile.get(7).getDateOfPaidFee().toString().equals("2019-08-18"));
     }
 
-    public final int countNumberOfTokens(String outFileName) {
+    public int countNumberOfTokens(String outFileName) {
         int numberOfTokens = 0;
         String rowOfText;
         try (BufferedReader buffR = new BufferedReader(new FileReader(outFileName))) {
-            if (buffR.readLine() != null) {
-                rowOfText = buffR.readLine();
-                numberOfTokens = rowOfText.length();
-            }
+            rowOfText = buffR.readLine();
+            numberOfTokens = rowOfText.length();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,6 +47,7 @@ public class FileReaderWriterTest {
     @Test
     void writeTrainingSessionToFileTest() {
         FileReaderWriter.writeTrainingSessionToFile(testSession);
+        assert (outFileName.startsWith("alhambra_aromes"));
         assert (countNumberOfTokens(outFileName) == 79);
         assert (countNumberOfTokens(outFileName) != 0);
         assert (countNumberOfTokens(outFileName) != 78);

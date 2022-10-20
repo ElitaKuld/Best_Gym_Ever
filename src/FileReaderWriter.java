@@ -1,5 +1,7 @@
+import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -9,6 +11,12 @@ public class FileReaderWriter {
 
     public static List<Customer> readFromFileToList(Path inFilePath) {
         List<Customer> peopleInTheFile = new ArrayList<>();
+
+        File newFile = new File(inFilePath.toUri());
+        if (newFile.length() == 0) {
+            JOptionPane.showMessageDialog(null, "Felmeddelande!\nFilen är tom.");
+            System.exit(-1);
+        }
 
         try (BufferedReader buffRead = Files.newBufferedReader(inFilePath)) {
 
@@ -23,8 +31,12 @@ public class FileReaderWriter {
 
                 peopleInTheFile.add(new Customer(name, personalNumber, dateOfPaidFee));
             }
+        } catch (NoSuchFileException e) {
+            JOptionPane.showMessageDialog(null, "Felmeddelande!\nIngen fil hittades.");
+            e.printStackTrace();
+            System.exit(0);
         } catch (IOException e) {
-            System.out.println("Fel inträffade vid läsning från fil");
+            JOptionPane.showMessageDialog(null, "Fel inträffade vid läsning från fil");
             e.printStackTrace();
             System.exit(0);
         }
@@ -35,16 +47,12 @@ public class FileReaderWriter {
         String outFileName = TextMetoder.createFileNameFromCustomerName(session.getCustomer().getName());
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(outFileName, true)))) {
             pw.write(session.printInfoAboutMe() + "\n");
-        } catch (FileNotFoundException e) {
-            System.out.println("Filen kunde inte hittas");
-            e.printStackTrace();
-            System.exit(0);
         } catch (IOException e) {
-            System.out.println("Det gick inte att skriva till fil");
+            JOptionPane.showMessageDialog(null, "Det gick inte att skriva till fil");
             e.printStackTrace();
             System.exit(0);
         } catch (Exception e) {
-            System.out.println("Något gick fel");
+            JOptionPane.showMessageDialog(null, "Något gick fel");
             e.printStackTrace();
             System.exit(0);
         }

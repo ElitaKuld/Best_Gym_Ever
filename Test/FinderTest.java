@@ -26,12 +26,10 @@ public class FinderTest {
         assert (Finder.findPersonOnList(testCustomers, testNameTrue).equals("Denna kund är en nuvarande medlem." +
                 "\nFör att denna person har kommit för att träna har vi sparat detta träningstillfälle i hens fil." +
                 "\nFilen har namnet \"" + TextMetoder.createFileNameFromCustomerName(testCustomerA.getName()) + "\""));
-        assert (Finder.findPersonOnList(testCustomers, testPersonalNumberTrue).equals("Denna kund är en nuvarande medlem." +
-                "\nFör att denna person har kommit för att träna har vi sparat detta träningstillfälle i hens fil." +
-                "\nFilen har namnet \"" + TextMetoder.createFileNameFromCustomerName(testCustomerA.getName()) + "\""));
+        assert (Finder.findPersonOnList(testCustomers, testPersonalNumberTrue).length() == 187);
         assert (Finder.findPersonOnList(testCustomers, testNameFalse).equals("Denna person är en före detta kund."));
-        assert (Finder.findPersonOnList(testCustomers, testPersonalNumberFalse).equals("Denna person är en före detta kund."));
-        assert (Finder.findPersonOnList(testCustomers, testNameFalse2).equals("Denna person är obehörig."));
-        assert (Finder.findPersonOnList(testCustomers, testPersonalNumberFalse2).equals("Denna person är obehörig."));
+        assert (Finder.findPersonOnList(testCustomers, testPersonalNumberFalse).length() == 35);
+        assert (Finder.findPersonOnList(testCustomers, testNameFalse2).equals("Okänt namn eller personnummer. Denna person är obehörig."));
+        assert (Finder.findPersonOnList(testCustomers, testPersonalNumberFalse2).length() == 56);
     }
 }
