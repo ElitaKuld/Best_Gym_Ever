@@ -39,6 +39,10 @@ public class FileReaderWriter {
             JOptionPane.showMessageDialog(null, "Fel inträffade vid läsning från fil");
             e.printStackTrace();
             System.exit(0);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Något gick fel");
+            e.printStackTrace();
+            System.exit(0);
         }
         return peopleInTheFile;
     }

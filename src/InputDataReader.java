@@ -9,10 +9,12 @@ public class InputDataReader {
             nameOrPersonalNumber = testData;
         } else {
             try {
-                nameOrPersonalNumber = JOptionPane.showInputDialog("Ange namn eller personnummer (10 siffror) på personen som har kommit till gymmet.").trim();
+                nameOrPersonalNumber = JOptionPane.showInputDialog("Ange fullständigt namn (namn och efternamn) " +
+                        "eller personnummer (10 siffror) på personen som har kommit till gymmet.").trim();
                 while (nameOrPersonalNumber.equals("")) {
                     nameOrPersonalNumber = JOptionPane.showInputDialog("Inmatningen kan inte vara tom." +
-                            "\nAnge namn eller personnummer (10 siffror) på personen som har kommit till gymmet.").trim();
+                            "\nAnge fullständigt namn (namn och efternamn) " +
+                            "eller personnummer (10 siffror) på personen som har kommit till gymmet.").trim();
                 }
             } catch (NullPointerException e) {
                 JOptionPane.showMessageDialog(null, "Du har avbrutit programmet.");
